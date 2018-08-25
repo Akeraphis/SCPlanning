@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
-// Company class represents the list of companies in the model
+import UserEntity from './UserEntity';
 
 class UsersList extends Component {
 
   renderCompanies(){
     return this.props.users.map((user) => (
-      <li><a href="/administration/user/">{user.emails[0].address}</a></li>
+      <UserEntity key={user._id} user={user}/>
     ))
   }
 

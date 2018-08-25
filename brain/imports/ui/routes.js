@@ -8,7 +8,9 @@ import {
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './client/App';
-import Companies from './client/administration/Companies';
+import AdministrationHome from './client/administration/AdministrationHome';
+import CompaniesList from './client/administration/CompaniesList';
+import UsersList from './client/administration/UsersList';
 import NotFoundPage from './client/NotFoundPage';
 
 const browserHistory = createBrowserHistory();
@@ -17,7 +19,9 @@ export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Switch>
       <Route exact path="/" component={App}/>
-      <Route exact path="/administration" component={Companies}/>
+      <Route exact path="/administration" component={AdministrationHome}/>
+      <Route exact path="/administration/companies" component={CompaniesList}/>
+      <Route exact path="/administration/users" component={UsersList}/>
       <Route component={NotFoundPage}/>
     </Switch>
   </Router>

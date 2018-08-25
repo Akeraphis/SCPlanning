@@ -10,8 +10,8 @@ export default class App extends Component {
         <header>
           <h1>brAIn</h1>
         </header>
-        <AccountsUIWrapper/>
-        <a href="/administration">Administration</a>
+        <AccountsUIWrapper/><br />
+        <a href="/administration">Administration</a><br/>
       </div>
     );
   }

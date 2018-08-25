@@ -6,7 +6,7 @@ import UserEntity from './UserEntity';
 
 class UsersList extends Component {
 
-  renderCompanies(){
+  renderUsers(){
     return this.props.users.map((user) => (
       <UserEntity key={user._id} user={user}/>
     ))
@@ -17,7 +17,7 @@ class UsersList extends Component {
       <div className="container">
         <h2>Users Administration</h2>
         <ul>
-          {this.renderCompanies()}
+          {this.renderUsers()}
         </ul>
       </div>
     );

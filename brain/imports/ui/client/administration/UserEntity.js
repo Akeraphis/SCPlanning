@@ -30,7 +30,7 @@ export default class UserEntity extends Component {
   render(){
     return(
       <div className="container">
-        <li onClick={this.handler.bind(this)}>{this.props.user.emails[0].address}</li>
+        <li onClick={this.handler.bind(this)}>{this.props.user.emails ? this.props.user.emails[0].address : this.props.user._id}</li>
         {this.renderUserEdition()}
       </div>
     )

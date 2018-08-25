@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 
-import { UserInformations } from '../../../api/users.js';
-
-class UserEdition extends Component {
+export default class UserEdition extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
@@ -29,10 +26,3 @@ class UserEdition extends Component {
     )
   }
 }
-
-export default withTracker(() => {
-  Meteor.subscribe('userInfo');
-  return {
-    userInfo: UserInformations.find({}).fetch(),
-  };
-})(UserEdition);

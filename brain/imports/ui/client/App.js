@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import AccountsUIWrapper from './AccountsUIWrapper.js';
+import AccountsUIWrapper from '../standardComponents/AccountsUIWrapper.js';
 
 // App component - represents the whole app
 export default class App extends Component {
@@ -11,6 +11,7 @@ export default class App extends Component {
           <h1>brAIn</h1>
         </header>
         <AccountsUIWrapper/>
+        <a href="/administration">Administration</a>
       </div>
     );
   }

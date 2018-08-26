@@ -27,14 +27,10 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
-    let u = UsersExtensions.findOne({userid : this.userId});
-
-    DataTables.insert({
+    return DataTables.insert({
       name: text,
       createdAt: new Date(),
       owner: this.userId,
-      username: u.username,
-      company : u.company
     });
 
   }

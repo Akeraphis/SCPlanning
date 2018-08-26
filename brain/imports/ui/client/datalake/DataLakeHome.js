@@ -3,13 +3,14 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
 import { Companies } from '../../../api/companies.js';
+import { DataTables } from '../../../api/datatables.js';
 import TableSummaryCard from './TableSummaryCard';
 
 class DataLakeHome extends Component {
 
   displayTablesList(){
-    return this.props.companies.map((company) => (
-      <TableSummaryCard key = {company._id} company = {company} />
+    return this.props.datatables.map((dt) => (
+      <TableSummaryCard key = {dt._id} dt = {dt} />
     ));
   }
 
@@ -29,6 +30,6 @@ export default withTracker(() => {
   Meteor.subscribe('myUser');
   Meteor.subscribe('allTables');
   return {
-    companies: Companies.find({}).fetch(),
+    datatables : DataTables.find({}).fetch()
   };
 })(DataLakeHome);

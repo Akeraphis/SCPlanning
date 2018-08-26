@@ -41,9 +41,8 @@ Meteor.methods({
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
     }
-    let user = UsersExtensions.findOne({userid : this.userId});
     Companies.update({
-      name : user.company
+      name : Meteor.users.findOne(this.userId).company
     },
     {
       $push : {

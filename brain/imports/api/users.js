@@ -2,9 +2,14 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
+export const UsersExtensions = new Mongo.Collection('usersExtensions');
+
 if (Meteor.isServer) {
   Meteor.publish('userList', function (){
     return Meteor.users.find({});
+  })
+  Meteor.publish('myUser', function (){
+    return UsersExtensions.find({userid : this.userId});
   })
 }
 
@@ -23,6 +28,21 @@ Meteor.methods({
           username: name,
           company: company
         }
+      }
+    );
+
+    UsersExtensions.update(
+      {
+        userid: id
+      },
+      {
+        $set: {
+          username: name,
+          company: company
+        }
+      },
+      {
+        upsert: true
       }
     );
   }

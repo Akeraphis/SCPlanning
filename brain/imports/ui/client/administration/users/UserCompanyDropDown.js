@@ -8,7 +8,7 @@ class UserCompanyDropDown extends Component {
 
   renderCompanies(){
     return this.props.companies.map((c) => (
-      <option>{c.name}</option>
+      <option id={c._id}>{c.name}</option>
     ))
   }
 

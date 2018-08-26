@@ -12,6 +12,7 @@ export default class App extends Component {
         </header>
         <AccountsUIWrapper/><br />
         <a href="/administration">Administration</a><br/>
+        <a href="/dataLake">Data Lake</a><br/>
       </div>
     );
   }

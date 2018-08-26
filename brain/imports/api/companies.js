@@ -2,12 +2,18 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
+import { UsersExtensions } from './users.js';
+
 export const Companies = new Mongo.Collection('companies');
 
 if (Meteor.isServer) {
   // This code only runs on the server
   Meteor.publish('companies', function companiesPublication() {
     return Companies.find();
+  });
+  let user = UsersExtensions.findOne({userid : this.userId});
+  Meteor.publish('myCompany', function companiesPublication() {
+    return Companies.find({name: user.company});
   });
 }
 
@@ -27,9 +33,25 @@ Meteor.methods({
       username: Meteor.users.findOne(this.userId).username,
     });
   },
-  'companies.remove'(taskId) {
-    check(taskId, String);
-
-    Tasks.remove(taskId);
+  'companies.remove'(cName) {
+    check(cName, String);
+    Companies.remove(cName);
   },
+  'company.dt.insert'(dtid) {
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    let user = UsersExtensions.findOne({userid : this.userId});
+    Companies.update({
+      name : user.company
+    },
+    {
+      $push : {
+        datatables : dtid
+      }
+    },
+    {
+      upsert : true
+    })
+  }
 });

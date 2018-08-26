@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Companies } from '../../../api/companies.js';
+import { Companies } from '../../../../api/companies.js';
 
 export default class CompanyCreationForm extends Component {
 

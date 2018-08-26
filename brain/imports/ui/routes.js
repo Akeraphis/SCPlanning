@@ -9,8 +9,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import App from './client/App';
 import AdministrationHome from './client/administration/AdministrationHome';
-import CompaniesList from './client/administration/CompaniesList';
-import UsersList from './client/administration/UsersList';
+import CompaniesList from './client/administration/companies/CompaniesList';
+import UsersList from './client/administration/users/UsersList';
 import NotFoundPage from './client/NotFoundPage';
 
 const browserHistory = createBrowserHistory();

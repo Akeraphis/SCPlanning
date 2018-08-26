@@ -9,8 +9,9 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'user.update'(id, name) {
+  'user.update'(id, name, company) {
     check(name, String);
+    check(company, String);
 
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -19,7 +20,8 @@ Meteor.methods({
     Meteor.users.update(id,
       {
         $set: {
-          username: name
+          username: name,
+          company: company
         }
       }
     );

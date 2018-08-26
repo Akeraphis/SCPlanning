@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Companies } from '../../../api/companies.js';
+import { Companies } from '../../../../api/companies.js';
 import CompanyCreationForm from './CompanyCreationForm';
 
 // Company class represents the list of companies in the model
